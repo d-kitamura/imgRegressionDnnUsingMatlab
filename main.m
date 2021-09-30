@@ -18,7 +18,7 @@ filePath = string(imds.Files); % 各画像のファイルパスを取得（全�
 labels = extractBetween(filePath, inFolderName + "\", "_"); % 「入力画像フォルダパス+\」と「_」の間の文字列を取得（全画像に対して）
 imds.Labels = cellstr(labels); % データストアのラベルに設定（stringをcell型に変換してから代入）
 sample = readimage(imds, 1); % サンプルとして画像を1枚読み込み
-[row, col, ch] = size(sample); % 画像サイズ取得（200 x 200 x 3）
+[row, col, ch] = size(sample); % 画像サイズ取得（100 x 100 x 3）
 
 % データ分割
 [devImds, testImds] = splitEachLabel(imds, devTestRatio, "randomized"); % 全データを開発データと評価データにランダム分割
@@ -50,7 +50,7 @@ poolWinSize = [2 2];  % プーリング層のウィンドウサイズ（height w
 poolWinStride = poolWinSize; % プーリング層のウィンドウのストライド（height width）
 if conv2gray; ch = 1; end % グレイスケール化した場合はch=1に置き換え
 
-layers = [
+layers = [ % ディープネットワークデザイナーで作成しコード出力したもの
     imageInputLayer([resizedRow resizedCol ch],"Name","imageinput")
     convolution2dLayer(convFilterSize,16,"Name","conv_11","Padding","same","Stride",convFilterStride)
     convolution2dLayer(convFilterSize,16,"Name","conv_12","Padding","same","Stride",convFilterStride)
@@ -76,7 +76,7 @@ layers = [
     reluLayer("Name","relu_7")
     regressionLayer("Name","regressionoutput")];
 
-%% 学習の設定
+%% 学習の設定（ディープネットワークデザイナーで作成しコード出力したもの）
 opts = trainingOptions("adam",...
     "ExecutionEnvironment","auto",...
     "InitialLearnRate",0.001,...
