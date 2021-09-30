@@ -2,8 +2,8 @@ clear; close all; clc; % ワークスペース開放（clear），プロット�
 
 %% 設定値
 inFolderName = "inputImages"; % 入力画像のあるフォルダのパス
-devTestRatio = 0.5; % 全データ中の開発データ（学習データ＋検証データ）の分割割合
-trainValRatio = 0.5; % 開発データ中の学習データと検証データの分割割合
+devTestRatio = 0.8; % 全データ中の開発データ（学習データ＋検証データ）の分割割合
+trainValRatio = 0.8; % 開発データ中の学習データと検証データの分割割合
 resizedRow = 50; % リサイズ後の画像の行数
 resizedCol = 50; % リサイズ後の画像の列数
 conv2gray = true; % リサイズ後の画像をグレイスケール化
