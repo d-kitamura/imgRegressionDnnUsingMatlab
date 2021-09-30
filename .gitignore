@@ -1,0 +1,8 @@
+originalImages/
+smallImages/
+*.asv
+main_resizeImg.m
+main_tbl.m
+trainedNet.mat
+testSample.png
+trainingSample.png
